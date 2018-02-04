@@ -14,6 +14,9 @@ The content of SVG images matters. For example, I had to add
 one image 6 times until the problem reproduced,
 but with another image it has reproduced with just 3 images on a page.
 
+If the issue isn't reproduced, set up remote debugging using DevTools
+and try enabling and disabling "border-radius" property on ".target" class.
+
 If transparent borders are added the rendering changes slightly:
 in the below case the gradient disappears for a halve of the element.
 -->
@@ -41,6 +44,8 @@ in the below case the gradient disappears for a halve of the element.
 </head>
 <body>
 
+<div class="target"></div>
+<div class="target"></div>
 <div class="target"></div>
 
 <div class="image"></div>
