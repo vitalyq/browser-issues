@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- Android 7.0.0, Chrome 64.0.3282.137
+Background images have transparent areas or repeat multiple times unexpectedly.
+
+Steps to reproduce:
+- Create a parent element with "border-radius" and "overflow: hidden".
+- Create a child element with "background-image" and "filter".
+  Blur filter don't cause the issue.
+- Add responsive meta tag.
+- Keep adding SVG images anywhere in the markup until the problem occurs.
+
+SVG images could either be "img" elements or set as background.
+The content of SVG images matters. For example, I had to add
+one image 6 times until the problem reproduced,
+but with another image it has reproduced with just 3 images on the page.
+-->
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    .container {
+      height: 250px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .target {
+      height: 100%;
+      background-image: url(../images/sample.jpg);
+      filter: contrast(100%);
+    }
+
+    .image {
+      width: 30px;
+      height: 30px;
+      background-image: url(../images/sample.svg);
+    }
+  </style>
+
+</head>
+<body>
+
+<div class="container">
+  <div class="target"></div>
+</div>
+<div class="container">
+  <div class="target"></div>
+</div>
+<div class="container">
+  <div class="target"></div>
+</div>
+
+<div class="image"></div>
+<div class="image"></div>
+<div class="image"></div>
+<div class="image"></div>
+<div class="image"></div>
+<div class="image"></div>
+
+</body>
+</html>
