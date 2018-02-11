@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<!-- Android Chrome 64 rendering issue:
-background images have transparent areas or repeat multiple times unexpectedly.
+<!-- Android 7.0.0, Chrome 64.0.3282.137
+Background images have transparent areas or repeat multiple times unexpectedly.
 
 Steps to reproduce:
 - Create an element with multiple background images or gradients.
+  "background" shorthand with both image and color also causes the issue.
   SVG images and "none" don't cause the issue.
 - Set "border-radius" on the element.
 - Add responsive meta tag.
